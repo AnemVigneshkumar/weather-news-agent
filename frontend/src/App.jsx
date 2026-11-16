@@ -65,16 +65,21 @@ export default function App() {
   const [input, setInput] = useState('')
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
-  const endRef = useRef(null)
   const inputRef = useRef(null)
 
   useEffect(() => {
     document.documentElement.dataset.sky = sky
   }, [sky])
 
-  useEffect(() => {
+    useEffect(() => {
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    endRef.current?.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'end' })
+    const id = requestAnimationFrame(() => {
+      window.scrollTo({
+        top: document.documentElement.scrollHeight,
+        behavior: reduce ? 'auto' : 'smooth',
+      })
+    })
+    return () => cancelAnimationFrame(id)
   }, [messages, loading, error])
 
   useEffect(() => {
@@ -138,7 +143,7 @@ export default function App() {
       <header className="bar">
         <div className="brand">
           <span className="brand-mark" aria-hidden="true" />
-          Nimbus
+          DayScope
         </div>
         <div className="bar-actions">
           <button
@@ -210,7 +215,6 @@ export default function App() {
             )}
           </div>
         )}
-        <div ref={endRef} />
       </main>
 
       <form className="composer" onSubmit={handleSubmit}>
