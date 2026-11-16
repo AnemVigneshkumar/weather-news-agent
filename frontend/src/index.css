@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Hanken+Grotesk:wght@400..700&display=swap');
+
+:root,
+:root[data-sky='day'] {
+  --font-display: 'Bricolage Grotesque', 'Hanken Grotesk', system-ui, sans-serif;
+  --font-body: 'Hanken Grotesk', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  --sky-top: #a9d8f5;
+  --sky-bottom: #dff0fa;
+  --ground: #f5f9fc;
+  --ink: #0d2233;
+  --ink-muted: #4d6578;
+  --line: rgba(13, 34, 51, 0.16);
+  --accent: #0a5c9e;
+  --accent-ink: #ffffff;
+  --field: #ffffff;
+  --orb-core: #fff6d6;
+  --orb-edge: #ffc94d;
+  --orb-glow: rgba(255, 201, 77, 0.55);
+  --danger: #a1262b;
+  --shadow: rgba(13, 34, 51, 0.12);
+  color-scheme: light;
+}
+
+:root[data-sky='dawn'] {
+  --sky-top: #bdb5ea;
+  --sky-bottom: #f8d3c6;
+  --ground: #fcf6f3;
+  --ink: #2b2347;
+  --ink-muted: #6a5f85;
+  --line: rgba(43, 35, 71, 0.16);
+  --accent: #4d3d96;
+  --accent-ink: #ffffff;
+  --field: #ffffff;
+  --orb-core: #fff0e0;
+  --orb-edge: #ffa98a;
+  --orb-glow: rgba(255, 169, 138, 0.55);
+  --danger: #a1262b;
+  --shadow: rgba(43, 35, 71, 0.14);
+  color-scheme: light;
+}
+
+:root[data-sky='dusk'] {
+  --sky-top: #3b3778;
+  --sky-bottom: #a85a7c;
+  --ground: #1d1a34;
+  --ink: #f3eefc;
+  --ink-muted: #b4abd0;
+  --line: rgba(243, 238, 252, 0.18);
+  --accent: #ffd48a;
+  --accent-ink: #2a1c05;
+  --field: #2a2647;
+  --orb-core: #fff1d0;
+  --orb-edge: #ff9a62;
+  --orb-glow: rgba(255, 154, 98, 0.5);
+  --danger: #ff9a9e;
+  --shadow: rgba(0, 0, 0, 0.4);
+  color-scheme: dark;
+}
+
+:root[data-sky='night'] {
+  --sky-top: #070c20;
+  --sky-bottom: #1a2a5a;
+  --ground: #0a0f22;
+  --ink: #e8eeff;
+  --ink-muted: #93a2cc;
+  --line: rgba(232, 238, 255, 0.16);
+  --accent: #a9cbff;
+  --accent-ink: #07122b;
+  --field: #141c3a;
+  --orb-core: #f4f7ff;
+  --orb-edge: #b9c8f0;
+  --orb-glow: rgba(169, 203, 255, 0.35);
+  --danger: #ff9a9e;
+  --shadow: rgba(0, 0, 0, 0.5);
+  color-scheme: dark;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--ink);
+  background-color: var(--ground);
+  background-image: linear-gradient(
+    180deg,
+    var(--sky-top) 0%,
+    var(--sky-bottom) 34%,
+    var(--ground) 70%
+  );
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+button,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--line) transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

@@ -1,0 +1,8 @@
+fastapi
+uvicorn[standard]
+pydantic
+pydantic-settings
+httpx
+langchain
+langchain-google-genai
+langgraph
