@@ -20,7 +20,7 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:5173",
-        "https://weather-news-agent-ui.onrender.com/api/agent/chat",
+        "https://weather-news-agent-ui.onrender.com",
     ],
     allow_methods=["*"],
     allow_headers=["*"],
